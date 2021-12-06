@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sentimental_analyst/components/rounded_button.dart';
+import 'package:sentimental_analyst/components/components.dart';
 import 'package:sentimental_analyst/palette.dart';
 import 'package:sentimental_analyst/screens/login.dart';
 import 'package:sentimental_analyst/screens/signup.dart';
