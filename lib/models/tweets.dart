@@ -13,7 +13,7 @@ List<Widget> tweets = const [
     comments: '243',
     retweets: '23K',
     favorites: '112K',
-    index: 1,
+    index: 0,
   ),
   Tweet(
     avatar:
@@ -25,7 +25,7 @@ List<Widget> tweets = const [
     comments: '305',
     retweets: '20K',
     favorites: '1M',
-    index: 2,
+    index: 1,
   ),
   Tweet(
     avatar:
@@ -38,7 +38,7 @@ List<Widget> tweets = const [
     comments: '1K',
     retweets: '70K',
     favorites: '2M',
-    index: 3,
+    index: 2,
   ),
 ];
 

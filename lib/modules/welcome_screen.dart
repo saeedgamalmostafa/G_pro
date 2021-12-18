@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sentimental_analyst/components/components.dart';
-import 'package:sentimental_analyst/palette.dart';
-import 'package:sentimental_analyst/screens/login.dart';
-import 'package:sentimental_analyst/screens/signup.dart';
+import 'package:sentimental_analyst/shared/components/palette.dart';
+import 'package:sentimental_analyst/modules/login.dart';
+import 'package:sentimental_analyst/modules/signup.dart';
+import 'package:sentimental_analyst/shared/components/components.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);

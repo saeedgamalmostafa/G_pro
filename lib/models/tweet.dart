@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
+import 'package:sentimental_analyst/models/services.dart';
 import 'package:sentimental_analyst/models/tweets.dart';
-import 'package:sentimental_analyst/screens/favourits.dart';
+import 'package:sentimental_analyst/modules/favourits.dart';
+import 'package:sentimental_analyst/modules/result.dart';
 
 class Tweet extends StatefulWidget {
   final String avatar;
@@ -33,14 +36,18 @@ class Tweet extends StatefulWidget {
 class _TweetState extends State<Tweet> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          tweetAvatar(),
-          tweetBody(),
-        ],
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(15),
+      child: Container(
+        // decoration: BoxDecoration(borderRadius: BorderRadius.circular(25)),
+        color: Colors.white,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            tweetAvatar(),
+            tweetBody(),
+          ],
+        ),
       ),
     );
   }
@@ -113,42 +120,58 @@ class _TweetState extends State<Tweet> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // tweetIconButton(FontAwesomeIcons.comment, comments,index),
-          tweetIconButton(
-              FontAwesomeIcons.check, widget.favorites, widget.index),
-          tweetIconButton(
-              FontAwesomeIcons.heart, widget.favorites, widget.index),
+          tweetIconButton(FontAwesomeIcons.check, widget.index,() {
+            
+                        Provider.of<ApiGetter>(context, listen: false)
+                            .fetchData("sf");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return Result();
+                            },
+                          ),
+                        );
+          },),
+          tweetIconButton(FontAwesomeIcons.heart, widget.index,() {
+            setState(() {
+              FavoriteTweets.add(tweets[widget.index]);
+              print(FavoriteTweets[0]);
+            });
+          },),
           // tweetIconButton(FontAwesomeIcons.share, '',index),
         ],
       ),
     );
   }
 
-  Widget tweetIconButton(IconData icon, String text, int index) {
+  Widget tweetIconButton(IconData icon, int index,Function() func) {
     return Row(
       children: [
         IconButton(
-          onPressed: () {
-            setState(() {
-              FavoriteTweets.add(tweets[index]);
-              print(FavoriteTweets[0]);
-            });
-          },
+          onPressed: func,
+          // () {
+          //   setState(() {
+          //     FavoriteTweets.add(tweets[index]);
+          //     print(FavoriteTweets[0]);
+          //   });
+          // },
           icon: Icon(
             icon,
             size: 16.0,
             color: Colors.black45,
           ),
         ),
-        Container(
-          margin: const EdgeInsets.all(6.0),
-          child: Text(
-            text,
-            style: const TextStyle(
-              color: Colors.black45,
-              fontSize: 14.0,
-            ),
-          ),
-        ),
+        // Container(
+        //   margin: const EdgeInsets.all(6.0),
+        //   child: Text(
+        //     "text",
+        //     style: const TextStyle(
+        //       color: Colors.black45,
+        //       fontSize: 14.0,
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }

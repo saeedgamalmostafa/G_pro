@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:sentimental_analyst/components/bottomNavBar.dart';
-import 'package:sentimental_analyst/components/already_have_an_account_acheck.dart';
-import 'package:sentimental_analyst/components/rounded_button.dart';
-import 'package:sentimental_analyst/components/rounded_input_field.dart';
-import 'package:sentimental_analyst/components/rounded_password_field.dart';
-import 'package:sentimental_analyst/components/services.dart';
-import 'package:sentimental_analyst/palette.dart';
-import 'package:sentimental_analyst/screens/home.dart';
-import 'package:sentimental_analyst/screens/result.dart';
-import 'package:sentimental_analyst/screens/signup.dart';
+import 'package:sentimental_analyst/shared/components/components.dart';
+import 'package:sentimental_analyst/models/services.dart';
+import 'package:sentimental_analyst/shared/components/palette.dart';
+import 'package:sentimental_analyst/modules/home.dart';
+import 'package:sentimental_analyst/modules/result.dart';
+import 'package:sentimental_analyst/modules/signup.dart';
 import 'package:sentimental_analyst/models/model.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -86,21 +82,21 @@ class LoginScreen extends StatelessWidget {
                         );
                       },
                     ),
-                    RoundedButton(
-                      text: "LOsGIN",
-                      press: () {
-                        Provider.of<Teezak>(context, listen: false)
-                            .fetchData("sf");
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return Result();
-                            },
-                          ),
-                        );
-                      },
-                    ),
+                    // RoundedButton(
+                    //   text: "LOsGIN",
+                    //   press: () {
+                    //     Provider.of<ApiGetter>(context, listen: false)
+                    //         .fetchData("sf");
+                    //     Navigator.pushReplacement(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //         builder: (context) {
+                    //           return Result();
+                    //         },
+                    //       ),
+                    //     );
+                    //   },
+                    // ),
                     SizedBox(height: size.height * 0.03),
                     Material(
                       color: kPrimaryLightColor,
