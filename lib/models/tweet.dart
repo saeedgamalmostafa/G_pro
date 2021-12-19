@@ -10,7 +10,7 @@ class Tweet extends StatefulWidget {
   final String avatar;
   final String username;
   final String name;
-  final String timeAgo;
+  // final String timeAgo;
   final String text;
   final String comments;
   final String retweets;
@@ -21,7 +21,7 @@ class Tweet extends StatefulWidget {
     required this.avatar,
     required this.username,
     required this.name,
-    required this.timeAgo,
+    // required this.timeAgo,
     required this.text,
     required this.comments,
     required this.retweets,
@@ -88,7 +88,7 @@ class _TweetState extends State<Tweet> {
           ),
         ),
         Text(
-          '@${widget.name} · ${widget.timeAgo}',
+          '@${widget.name}',
           style: const TextStyle(
             color: Colors.grey,
           ),
