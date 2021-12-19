@@ -66,25 +66,23 @@ class _HomeState extends State<Bottom> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
+        color: kPrimaryColor.withOpacity(0.35),
         backgroundColor: kPrimaryLightColor,
         key: _bottomNavigationKey,
+        buttonBackgroundColor: kPrimaryLightColor,
+        height: 60,
         // ignore: prefer_const_literals_to_create_immutables
         items: <Widget>[
-          Icon(Icons.home, size: 35, color: Colors.black),
-          Icon(Icons.favorite, size: 35, color: Colors.black),
-          Icon(Icons.saved_search_sharp, size: 35, color: Colors.black),
-          Icon(Icons.list, size: 35, color: Colors.black),
+          Icon(Icons.home, size: 35, color: kPrimaryColor),
+          Icon(Icons.favorite, size: 35, color: kPrimaryColor),
+          Icon(Icons.saved_search_sharp, size: 35, color: kPrimaryColor),
+          Icon(Icons.list, size: 35, color: kPrimaryColor),
         ],
         onTap: (index) {
           setState(() {
             _page = index;
           });
         },
-        // buttonBackgroundColor: Colors.pink[100],
-        // height: 60,
-        // color: Colors.pink[200],
-        // animationDuration: Duration(milliseconds: 300),
-        // backgroundColor: Colors.pink[50],
       ),
       body: _widgetOptions.elementAt(_page),
     );
@@ -93,8 +91,6 @@ class _HomeState extends State<Bottom> {
 
 class CarouselLoading extends StatelessWidget {
   const CarouselLoading({Key? key}) : super(key: key);
-
-  //const CarouselLoading({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -299,31 +295,3 @@ class _CustomeDrawerState extends State<CustomeDrawer> {
     );
   }
 }
-
-// class Test extends StatelessWidget {
-//   final List TTweets;
-
-//   const Test({required this.TTweets}) ;
-//   @override
-//   Widget build(BuildContext context) {
-//     // Size size = MediaQuery.of(context).size;
-
-//     return   Container(
-//       height: 10000000,
-//       child: ListView.separated(
-//         physics: NeverScrollableScrollPhysics(),
-//         shrinkWrap: true,
-//         itemBuilder: (BuildContext context, int index) {
-//           return TTweets[index];
-//         },
-//         separatorBuilder: (BuildContext context, int index) => const Divider(
-//           height: 0,
-//         ),
-//         itemCount: TTweets.length,
-//       ),
-//     );
-//   }
-// }
-
-
-
